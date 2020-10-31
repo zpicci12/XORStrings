@@ -13,10 +13,8 @@ def solve(mode, key_word, inp):
     for i in range(len(inp)):
         if (mode == "human"):
             str += chr(ord(inp[i]) ^ ord(key[i]))
-        elif (mode == "numOut"):
-            str += (hex(ord(inp[i]) ^ ord(key[i])))[2:] + " "
         else:
-            print("Not a valid mode. Please select 'human' or 'numOut'.")
+            str += (hex(ord(inp[i]) ^ ord(key[i])))[2:] + " "
     print(str)
 
 '''
@@ -49,5 +47,9 @@ if __name__ == "__main__":
         print("inp: "+inp)
 
     #note to self: incorporate mode into argument once finished w part 2
-    solve(mode, key, inp)
+    if (mode == "numOut" or mode == "human"):
+        solve(mode, key, inp)
+    else:
+        print("Not a valid mode. Please select 'human' or 'numOut.'")
+
     #solve_hex(mode, key, inp)
