@@ -5,7 +5,7 @@ November 2, 2020
 
 XORStrings: encode/decode messages using the XOR operator.
 
-Usage: "make run ARGS="mode keyfile textfile"
+Usage: "make run ARGS="mode keyfile textfile""
 '''
 
 import sys
