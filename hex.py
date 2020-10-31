@@ -1,6 +1,6 @@
 import sys
 
-def solve(key_word, inp):
+def solve(mode, key_word, inp):
     key = key_word
     count = 0
     while (len(key) < len(inp)):
@@ -11,9 +11,15 @@ def solve(key_word, inp):
             count += 1
     str = ""
     for i in range(len(inp)):
-        str += chr(ord(inp[i]) ^ ord(key[i]))
+        if (mode == "human"):
+            str += chr(ord(inp[i]) ^ ord(key[i]))
+        elif (mode == "numOut"):
+            str += (hex(ord(inp[i]) ^ ord(key[i])))[2:] + " "
+        else:
+            print("Not a valid mode. Please select 'human' or 'numOut'.")
     print(str)
 
+'''
 def solve_hex(key_word, inp):
     key = key_word
     count = 0
@@ -27,6 +33,7 @@ def solve_hex(key_word, inp):
     for i in range(len(inp)):
         str += (hex(ord(inp[i]) ^ ord(key[i])))[2:] + " "
     print(str)
+'''
 
 if __name__ == "__main__":
     mode = sys.argv[1]
@@ -42,5 +49,5 @@ if __name__ == "__main__":
         print("inp: "+inp)
 
     #note to self: incorporate mode into argument once finished w part 2
-    solve(key, inp)
-    solve_hex(key, inp)
+    solve(mode, key, inp)
+    #solve_hex(mode, key, inp)
